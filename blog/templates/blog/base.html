@@ -14,9 +14,21 @@
 <body>
     <header class="page-header">
         <div class="container"></div>
+            {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu">
                 Add New
             </a>
+            <a href="{% url 'post_draft_list' %}" class="top-menu">
+                Drafts
+            </a>
+            <a button href="/logout" class="top-menu" style="background: none; border: none;">
+                Logout
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}" class="top-menu">
+                Login
+            </a>
+            {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
     </header>
